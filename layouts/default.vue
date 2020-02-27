@@ -1,21 +1,24 @@
 <template>
-  <v-app dark>
-    <v-app-bar fixed app>
-      <v-toolbar-title v-text="title" />
-    </v-app-bar>
+  <v-app>
+    <AppHeader />
     <v-content>
       <v-container>
         <nuxt />
       </v-container>
     </v-content>
-    <v-footer fixed app>
-      <span>&copy; {{ new Date().getFullYear() }}</span>
-    </v-footer>
+    <AppFooter />
   </v-app>
 </template>
 
 <script>
+import AppHeader from '~/components/navigation/AppHeader'
+import AppFooter from '~/components/navigation/AppFooter'
+
 export default {
+  components: {
+    AppHeader,
+    AppFooter
+  },
   data () {
     return {
       title: 'Vuetify.js'
