@@ -1,5 +1,5 @@
 <template>
-  <v-card width="100%" max-width="400px" :elevation="3">
+  <v-card width="100%" max-width="400px" :elevation="3" :disabled="isLoading">
     <v-card-title>
       {{ $route.params.recipeId ? "Edit" : "Add" }} the recipe
     </v-card-title>
@@ -21,7 +21,7 @@
       />
     </v-card-text>
     <v-card-actions class="justify-end">
-      <v-btn to="/" color="grey" outlined :disabled="isLoading">
+      <v-btn to="/" color="grey" outlined>
         Cancel
       </v-btn>
       <v-btn
