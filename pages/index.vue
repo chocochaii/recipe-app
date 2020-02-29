@@ -1,17 +1,25 @@
 <template>
-  <v-layout column justify-center align-center>
-    <RecipeForm />
+  <v-layout>
     <RecipeList :recipes="recipes" />
+    <nuxt-link to="/add">
+      <v-btn
+        fab
+        fixed
+        large
+        bottom
+        right
+      >
+        <v-icon>add</v-icon>
+      </v-btn>
+    </nuxt-link>
   </v-layout>
 </template>
 
 <script>
-import RecipeForm from '~/components/form/RecipeForm'
 import RecipeList from '~/components/recipe/RecipeList'
 
 export default {
   components: {
-    RecipeForm,
     RecipeList
   },
   data () {

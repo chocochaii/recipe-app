@@ -26,4 +26,7 @@ export default {
 a {
   text-decoration: none;
 }
+.container {
+  height: 100%;
+}
 </style>

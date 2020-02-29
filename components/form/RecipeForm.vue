@@ -1,18 +1,18 @@
 <template>
   <v-card width="100%" max-width="400px" :elevation="3">
     <v-card-title class="justify-center">
-      Add the recipe
+      {{ $route.params.recipeId ? "Edit" : "Add" }} the recipe
     </v-card-title>
     <v-card-text>
-      <v-text-field v-model.trim="title" label="Recipe title" />
+      <v-text-field v-model.trim="editedRecipe.title" label="Recipe title" />
       <v-textarea
-        v-model.trim="description"
+        v-model.trim="editedRecipe.description"
         label="Description"
         rows="1"
         auto-grow
       />
       <v-combobox
-        v-model="ingredients"
+        v-model="editedRecipe.ingredients"
         label="Add ingredient(s)"
         multiple
         chips
@@ -22,11 +22,11 @@
     </v-card-text>
     <v-card-actions class="justify-center">
       <v-btn
-        :loading="isAdding"
-        :disabled="!title || !description || !ingredients.length"
+        :loading="isLoading"
+        :disabled="isFormCompleted"
         @click="onSubmit"
       >
-        Add this recipe
+        Submit
       </v-btn>
     </v-card-actions>
   </v-card>
@@ -34,24 +34,40 @@
 
 <script>
 export default {
+  props: {
+    recipe: {
+      type: Object,
+      required: false,
+      default: null
+    }
+  },
   data () {
     return {
-      title: '',
-      description: '',
-      ingredients: [],
-      isAdding: false
+      editedRecipe: this.recipe
+        ? { ...this.recipe }
+        : {
+          title: '',
+          description: '',
+          ingredients: []
+        },
+      isLoading: false
+    }
+  },
+  computed: {
+    isFormCompleted () {
+      return (
+        !this.editedRecipe.title ||
+        !this.editedRecipe.description ||
+        (this.editedRecipe.ingredients && !this.editedRecipe.ingredients.length)
+      )
     }
   },
   methods: {
     onSubmit () {
-      this.isAdding = true
+      this.isLoading = true
       setTimeout(() => {
-        console.log('Added', {
-          title: this.title,
-          description: this.description,
-          ingredients: this.ingredients
-        })
-        this.isAdding = false
+        this.$emit('submit', { ...this.editedRecipe })
+        this.isLoading = false
       }, 2000)
     }
   }
