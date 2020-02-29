@@ -23,7 +23,7 @@
               </div>
             </v-card-text>
             <v-spacer />
-            <v-card-actions v-if="hover">
+            <v-card-actions v-if="hover || $vuetify.breakpoint.mdAndDown">
               <v-spacer />
               <nuxt-link :to="`/edit/${id}`">
                 <v-tooltip bottom>
