@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="`/recipes/${id}`">
+  <nuxt-link :to="disabled ? '' : `/recipes/${id}`">
     <article>
       <v-hover>
         <template v-slot="{ hover }">
@@ -7,6 +7,7 @@
             class="d-flex flex-column"
             min-height="200px"
             :elevation="hover ? 6 : 3"
+            :disabled="disabled"
           >
             <v-card-title>{{ title }}</v-card-title>
             <v-card-text>
@@ -36,7 +37,7 @@
               </nuxt-link>
               <v-tooltip bottom>
                 <template v-slot:activator="{ on }">
-                  <v-btn icon v-on="on">
+                  <v-btn icon v-on="on" @click.prevent="confirmDelete">
                     <v-icon>delete</v-icon>
                   </v-btn>
                 </template>
@@ -64,6 +65,25 @@ export default {
     ingredients: {
       type: Array,
       default: () => []
+    }
+  },
+  data () {
+    return {
+      disabled: false
+    }
+  },
+  methods: {
+    confirmDelete (e) {
+      const confirm = window.confirm('Are you sure?\n\nDo you really want to delete this recipe?\nThis process cannot be undone.')
+      if (confirm) {
+        this.deleteRecipe()
+      }
+    },
+    deleteRecipe () {
+      this.disabled = true
+      setTimeout(() => {
+        this.disabled = false
+      }, 2000)
     }
   }
 }
