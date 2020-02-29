@@ -2,36 +2,22 @@
   <v-layout column justify-center align-center>
     <v-row>
       <v-col>
-        <AppInput
-          v-model.trim="title"
-          placeholder="Recipe title"
-        />
-        <AppInput
-          ref="ingredientInput"
-          v-model.trim="ingredient"
-          placeholder="Add an ingredient"
-        />
-        <AppButton
+        <v-text-field v-model.trim="title" label="Recipe title" />
+        <v-text-field v-model.trim="ingredient" label="Add an ingredient" />
+        <v-btn
           :loading="isAdding"
           :disabled="!title || !ingredients.length"
           @click="onSubmit"
         >
           Add this recipe
-        </AppButton>
+        </v-btn>
       </v-col>
     </v-row>
   </v-layout>
 </template>
 
 <script>
-import AppInput from '~/components/UI/AppInput'
-import AppButton from '~/components/UI/AppButton'
-
 export default {
-  components: {
-    AppInput,
-    AppButton
-  },
   data () {
     return {
       title: '',
