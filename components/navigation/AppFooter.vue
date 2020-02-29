@@ -1,5 +1,5 @@
 <template>
-  <v-footer fixed app>
+  <v-footer>
     <span>&copy; {{ new Date().getFullYear() }} Chocochaii</span>
   </v-footer>
 </template>
