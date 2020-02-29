@@ -1,6 +1,8 @@
 <template>
-  <v-app-bar fixed app>
-    <v-toolbar-title v-text="title" />
+  <v-app-bar fixed app light>
+    <a href="/" class="home">
+      <v-toolbar-title v-text="title" />
+    </a>
   </v-app-bar>
 </template>
 
@@ -13,3 +15,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.home {
+  color: rgba(0, 0, 0, 0.87);
+}
+</style>
