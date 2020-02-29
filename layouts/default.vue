@@ -18,11 +18,12 @@ export default {
   components: {
     AppHeader,
     AppFooter
-  },
-  data () {
-    return {
-      title: 'Vuetify.js'
-    }
   }
 }
 </script>
+
+<style lang="scss">
+a {
+  text-decoration: none;
+}
+</style>
