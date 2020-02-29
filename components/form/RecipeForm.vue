@@ -1,6 +1,6 @@
 <template>
   <v-card width="100%" max-width="400px" :elevation="3">
-    <v-card-title class="justify-center">
+    <v-card-title>
       {{ $route.params.recipeId ? "Edit" : "Add" }} the recipe
     </v-card-title>
     <v-card-text>
@@ -20,8 +20,12 @@
         hint='Press "Enter" key to separate each ingredient'
       />
     </v-card-text>
-    <v-card-actions class="justify-center">
+    <v-card-actions class="justify-end">
+      <v-btn to="/" color="grey" outlined :disabled="isLoading">
+        Cancel
+      </v-btn>
       <v-btn
+        color="primary"
         :loading="isLoading"
         :disabled="isFormCompleted"
         @click="onSubmit"
