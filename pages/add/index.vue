@@ -13,7 +13,15 @@ export default {
   },
   methods: {
     onSubmit (addedRecipe) {
-      console.log('on add', addedRecipe)
+      this.$store.dispatch('addRecipe', addedRecipe)
+        .then(({ data, error }) => {
+          if (error) {
+            // eslint-disable-next-line
+            console.log(`Error: ${error}`)
+          } else {
+            this.$router.push(`/recipes/${data.id}`)
+          }
+        })
     }
   }
 }
