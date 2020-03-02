@@ -1,17 +1,27 @@
 <template>
-  <v-layout justify-center align-center fill-height>
-    <RecipeList :recipes="recipes" />
-    <nuxt-link to="/add">
-      <v-btn
-        color="primary"
-        fab
-        fixed
-        bottom
-        right
-      >
-        <v-icon>add</v-icon>
-      </v-btn>
-    </nuxt-link>
+  <v-layout :fill-height="!recipes.length">
+    <div v-if="recipes.length" class="d-flex flex-grow-1">
+      <RecipeList :recipes="recipes" />
+      <nuxt-link to="/add">
+        <v-btn
+          color="primary"
+          fab
+          fixed
+          bottom
+          right
+        >
+          <v-icon>add</v-icon>
+        </v-btn>
+      </nuxt-link>
+    </div>
+    <div v-else class="d-flex flex-grow-1 flex-column justify-center align-center fill-height">
+      No recipes yet. Be the first one!
+      <nuxt-link to="/add">
+        <v-btn class="my-3" color="primary">
+          Add the recipe
+        </v-btn>
+      </nuxt-link>
+    </div>
   </v-layout>
 </template>
 

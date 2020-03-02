@@ -1,5 +1,5 @@
 <template>
-  <section class="d-flex flex-grow-1 fill-height">
+  <section class="d-flex flex-grow-1">
     <v-row v-if="recipes.length">
       <v-col
         v-for="recipe in recipes"
@@ -17,14 +17,6 @@
         />
       </v-col>
     </v-row>
-    <div v-else class="d-flex flex-grow-1 flex-column justify-center align-center">
-      No recipes yet. Be the first one!
-      <nuxt-link to="/add">
-        <v-btn class="my-3" color="primary">
-          Add the recipe
-        </v-btn>
-      </nuxt-link>
-    </div>
   </section>
 </template>
 
