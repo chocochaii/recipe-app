@@ -41,6 +41,11 @@ export default {
           }
         })
     }
+  },
+  head () {
+    return {
+      title: 'Edit the recipe'
+    }
   }
 }
 </script>

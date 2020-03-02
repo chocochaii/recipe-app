@@ -23,6 +23,11 @@ export default {
           }
         })
     }
+  },
+  head () {
+    return {
+      title: 'Add the recipe'
+    }
   }
 }
 </script>

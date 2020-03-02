@@ -83,6 +83,11 @@ export default {
           }
         })
     }
+  },
+  head () {
+    return {
+      title: this.recipe.title
+    }
   }
 }
 </script>

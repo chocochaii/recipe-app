@@ -36,6 +36,11 @@ export default {
     recipes () {
       return this.$store.getters.loadedRecipes
     }
+  },
+  head () {
+    return {
+      title: 'All recipes'
+    }
   }
 }
 </script>
