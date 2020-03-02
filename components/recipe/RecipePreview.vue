@@ -11,7 +11,7 @@
           >
             <v-card-title>{{ title }}</v-card-title>
             <v-card-text>
-              <div class="d-flex">
+              <div class="d-flex flex-wrap">
                 <v-chip
                   v-for="ingredient in ingredients"
                   :key="ingredient"
@@ -81,10 +81,16 @@ export default {
     },
     deleteRecipe () {
       this.disabled = true
-      setTimeout(() => {
-        this.disabled = false
-      }, 2000)
+      this.$store.dispatch('deleteRecipe', this.id)
     }
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.v-card__actions {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+</style>
