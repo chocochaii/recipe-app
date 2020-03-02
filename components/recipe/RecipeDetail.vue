@@ -52,4 +52,10 @@ export default {
   margin-left: auto;
   margin-right: auto;
 }
+.v-card__title {
+  text-transform: capitalize;
+}
+.v-card__text {
+  text-transform: capitalize;
+}
 </style>

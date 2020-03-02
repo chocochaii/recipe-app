@@ -88,6 +88,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.v-card__title {
+  text-transform: capitalize;
+}
+.v-card__text {
+  text-transform: capitalize;
+}
 .v-card__actions {
   position: absolute;
   right: 0;
