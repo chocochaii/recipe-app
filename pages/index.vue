@@ -1,11 +1,11 @@
 <template>
-  <v-layout>
+  <v-layout justify-center align-center fill-height>
     <RecipeList :recipes="recipes" />
     <nuxt-link to="/add">
       <v-btn
+        color="primary"
         fab
         fixed
-        large
         bottom
         right
       >
@@ -22,52 +22,9 @@ export default {
   components: {
     RecipeList
   },
-  data () {
-    return {
-      recipes: [
-        {
-          id: 'rcp1',
-          title: 'Cookie',
-          description: 'A delicious cookie',
-          ingredients: ['butter', 'milk', 'sugar']
-        },
-        {
-          id: 'rcp2',
-          title: 'Cookie',
-          description: 'A delicious cookie',
-          ingredients: ['butter', 'milk', 'sugar']
-        },
-        {
-          id: 'rcp3',
-          title: 'cookie',
-          description: 'A delicious cookie',
-          ingredients: ['butter', 'milk', 'sugar']
-        },
-        {
-          id: 'rcp4',
-          title: 'Cookie',
-          description: 'A delicious cookie',
-          ingredients: ['butter', 'milk', 'sugar']
-        },
-        {
-          id: 'rcp5',
-          title: 'Cookie',
-          description: 'A delicious cookie',
-          ingredients: ['butter', 'milk', 'sugar']
-        },
-        {
-          id: 'rcp6',
-          title: 'Cookie',
-          description: 'A delicious cookie',
-          ingredients: ['butter', 'milk', 'sugar']
-        },
-        {
-          id: 'rcp7',
-          title: 'Cookie',
-          description: 'A delicious cookie',
-          ingredients: ['butter', 'milk', 'sugar']
-        }
-      ]
+  computed: {
+    recipes () {
+      return this.$store.getters.loadedRecipes
     }
   }
 }
