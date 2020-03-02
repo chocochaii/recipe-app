@@ -7,7 +7,7 @@ if (!firebase.apps.length) {
     databaseURL: process.env.FB_DB_URL,
     projectId: process.env.FB_PROJECT_ID
   }
-  console.log(process.env.FB_PROJECT_ID)
+  console.log('[config]', config)
   firebase.initializeApp(config)
 }
 
