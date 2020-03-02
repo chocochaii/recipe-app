@@ -69,10 +69,7 @@ export default {
   methods: {
     onSubmit () {
       this.isLoading = true
-      setTimeout(() => {
-        this.$emit('submit', { ...this.editedRecipe })
-        this.isLoading = false
-      }, 2000)
+      this.$emit('submit', { ...this.editedRecipe })
     }
   }
 }
