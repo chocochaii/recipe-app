@@ -1,5 +1,7 @@
 import colors from 'vuetify/es5/util/colors'
 
+require('dotenv').config()
+
 export default {
   mode: 'universal',
   /*
@@ -84,5 +86,10 @@ export default {
   transition: {
     name: 'fade',
     mode: 'out-in'
+  },
+  env: {
+    fbApiKey: process.env.FB_API_KEY,
+    fbDbUrl: process.env.FB_DB_URL,
+    fbProjectId: process.env.FB_PROJECT_ID
   }
 }
