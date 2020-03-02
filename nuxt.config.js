@@ -41,7 +41,7 @@ export default {
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
     '@nuxtjs/vuetify',
-    ['@nuxtjs/dotenv', { path: './config/' }]
+    '@nuxtjs/dotenv'
   ],
   /*
   ** Nuxt.js modules
