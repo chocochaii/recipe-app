@@ -7,7 +7,6 @@ if (!firebase.apps.length) {
     databaseURL: process.env.NUXT_ENV_FB_DB_URL,
     projectId: process.env.NUXT_ENV_FB_PROJECT_ID
   }
-  console.log('[config]', config)
   firebase.initializeApp(config)
 }
 
