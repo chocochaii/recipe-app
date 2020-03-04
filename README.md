@@ -2,6 +2,14 @@
 
 > Simple recipes app built with Nuxt.js &amp; Firebase
 
+## .env
+Create .env file at root directory with the following variables to connect to your firestore
+```
+NUXT_ENV_FB_API_KEY=<your_firebase_api_key>,
+NUXT_ENV_FB_DB_URL=<your_firebase_database_url>,
+NUXT_ENV_FB_PROJECT_ID=<your_firebase_project_id>
+```
+
 ## Build Setup
 
 ``` bash
